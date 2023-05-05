@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartParking Home</title>
+
+
+    {% load static %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/index.css'%}">
+
+    <div class="container-fluid" style="margin-bottom: 1%;">
+        {% block content %}
+        {% include 'navbar.html'%}
+        {% endblock %}
+    </div>
+
+
+<body>
+    <br><br>
+    <div class="container-fluid">
+        <!-- CARRUSEL   PROMOCIONES -->
+        <div id="carousel" class="container-md">
+            <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="False" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="{%static 'core/img/fondo.jpg'%}" class="d-block w-100" alt="..." width="..."
+                            style="border-radius: 20px;" height="450">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="{%static 'core/img/fondo.jpg'%}" class="d-block w-100" alt="..." height="450"
+                            style="border-radius: 20px;">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{%static 'core/img/fondo.jpg'%}" class="d-block w-100" alt="..." height="450"
+                            style="border-radius: 20px;">
+                        <div class="carousel-caption d-none d-md-block">
+
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="False"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="False"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="text-align: center; margin: 1%;">
+            <p class="fs-3 fw-bold">¿Qué opinan nuestros Clientes?</p>
+        </div>
+
+        <div class="container-mg" style="margin: 1%;">
+            <div class="row gy-12">
+                <div class="col-6">
+                    
+                    <div class="col-12">  
+                        <div class="p-2 border-0 bg-light">
+                            <div class="row g-0">
+                                <div class="col-sm-6 col-md-4" style="text-align: center;">
+                                    <img src="{% static 'core/img/avatar2.png'%}" alt="" width="50%"></div>
+                                <div class="col-6 col-md-8"><p class="fs-6 fw-bold"> <cite title="Source Title">
+                                    "Necesitaba generar ingresos y contraté la aplicación web SmartParking, donde puedo arrendar mi estacionamiento y asi generar ganancias"
+                                </cite></p>
+                                <figcaption class="blockquote-footer">
+                                    Alicia Pereira<cite title="Source Title">, Cliente Dueño de estacionamiento</cite>
+                                </figcaption></div>
+                              </div>                          
+                    </div>
+   
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-2 border-0 bg-light">
+                        
+                        <div class="row g-0">
+                            <div class="col-sm-6 col-md-4" style="text-align: center;">
+                                <img src="{% static 'core/img/avatar1.png'%}" alt="" width="40%"></div>
+                            <div class="col-6 col-md-8"><p class="fs-6 fw-bold"> <cite title="Source Title">
+                                "Hoy en día es dificil encontrar estacionamiento en Santiago Centro, pero gracias a la aplicación SmartParking puedo solicitar un estacionamiento con la distancia de solo un clic"
+                            </cite></p>
+                            <figcaption class="blockquote-footer">
+                                Alan Lopez<cite title="Source Title">, Cliente Arrendador</cite>
+                            </figcaption></div>
+                          </div>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+{% include 'Footer.html'%}
+
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+{% for m in messages %}
+<script>
+    Swal.fire({
+        "title": "Felicitaciones",
+        "text": "{{m}}",
+        "icon": "success"
+    })
+</script>
+{% endfor %}
+{% endif %}
+
+
+
+
+
+
+<!-- Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+
+
+</html>
