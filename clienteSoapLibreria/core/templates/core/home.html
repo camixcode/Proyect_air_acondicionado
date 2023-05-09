@@ -1,0 +1,84 @@
+{% extends "core/base.html" %}
+{% block contenido %}
+<script>
+
+$(function(){
+        $("#form_buscar").on('submit',function(){
+                alert("Holi");
+        });
+
+});
+
+
+
+
+</script>
+
+<h3>Consumo Cliente</h3>
+
+<h3>Formulario -Consulta</h3>
+<form method="post" id="form_buscar">
+    {% csrf_token %}
+    <div class="form-group">
+            <span>Ingrese Código: </span>
+            <input type="text" name="codigo" id="codigo">
+            <button type="submit" class="btn btn-success">Obtener Libro</button>
+    </div>
+</form>
+
+<br>
+<form method="post" id="form_actualizar">
+{% csrf_token %}
+<div class="form-group">
+        <span>Nombre del Libro: </span>
+        <input type="text" name="nombre" id="nombre" readonly>
+        <span>Stock disponible: </span>
+        <input type="text" name="stock_disponible" id="stock_disponible" readonly>
+        <span>Precio: </span>
+        <input type="text" name="precio" id="precio" readonly>
+        <span>Autor: </span>
+        <input type="text" name="autor" id="autor" readonly>
+        <span>Vigencia: </span>
+        <input type="text" name="vigencia" id="vigencia" readonly>
+        <input type="text" name="codigo_oculto" id="codigo_oculto" readonly>
+        <br>
+        <span>Ingrese cantidad a comprar: </span>
+        <input type="text" name="stock" id="stock">
+        <button type="submit"  class="btn btn-success">Actualizar Stock Libro</button>
+</div>
+</form>
+
+
+
+
+<!--h3>{{mensaje}}gg</h3-->
+
+<table id="tabla_datos" data-toggle="table" data-sort-name="stargazers_count"
+data-sort-order="desc"
+data-pagination="true"
+data-height="460"
+data-unique-id="codigo_id"
+data-search="true">
+<thead class="thead-inverse">
+   <th data-field="codigo_id">Código Libro </th>     
+   <th data-field="nombre">Nombre Libro </th>  
+   <th data-field="precio">Precio Libro </th>  
+   <th data-field="stock">Stock Libro </th>  
+   <th data-field="autor">Autor Libro </th>  
+   <th data-field="vigencia">Vigencia Libro </th>   
+</thead>
+<tbody>
+
+        <tr>
+            <td>33</td>
+            <td>rererrere</td>
+            <td>22222</td>
+            <td>2222</td>f
+            <td>dddddddd</td>
+            <td>S</td>
+        </tr>
+
+</tbody>
+
+</table>
+{% endblock contenido %}
