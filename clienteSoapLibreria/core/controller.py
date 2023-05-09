@@ -5,5 +5,5 @@ class Controller:
     cliente = Client(wsdl)
 
     def sumar(self):
-        resultado = self.cliente.servicio.sumar(3,4)
+        resultado = self.cliente.service.sumar(3,4)
         return resultado

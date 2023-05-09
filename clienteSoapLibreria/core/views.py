@@ -6,5 +6,11 @@ def home(request):
      variable = {
           'mensaje': ''
      }
-     variable['mensaje'] = 'HOLI'
+
+     controller = Controller()
+     suma = controller.sumar()
+
+
+
+     variable['mensaje']=suma
      return render(request,'core/home.html',variable)
