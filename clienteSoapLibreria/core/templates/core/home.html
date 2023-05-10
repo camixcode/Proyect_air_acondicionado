@@ -68,15 +68,17 @@ data-search="true">
    <th data-field="vigencia">Vigencia Libro </th>   
 </thead>
 <tbody>
-
+        {% for mje in mensaje %}
         <tr>
-            <td>33</td>
-            <td>rererrere</td>
-            <td>22222</td>
-            <td>2222</td>f
-            <td>dddddddd</td>
-            <td>S</td>
+            <td>{{mje.id_producto}}</td>
+            <td>{{mje.nombre}}</td>
+            <td>{{mje.precio}}</td>
+            <td>{{mje.stock}}</td>f
+            <td>{{mje.autor}}</td>
+            <td>{{mje.vigencia}}</td>
         </tr>
+        {% endfor %}
+
 
 </tbody>
 

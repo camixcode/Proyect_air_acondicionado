@@ -8,9 +8,9 @@ def home(request):
      }
 
      controller = Controller()
-     suma = controller.sumar()
-
+     suma = controller.mostrarLibros()
 
 
      variable['mensaje']=suma
+
      return render(request,'core/home.html',variable)
