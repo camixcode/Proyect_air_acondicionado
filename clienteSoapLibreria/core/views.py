@@ -14,13 +14,13 @@ def home(request):
 
      controller = Controller()
      listaLibros = controller.mostrarLibros()
-     det_libro = controller.mostrarUnLibro()
+     # det_libro = controller.mostrarUnLibro()
      try:
           lista = controller.buscarTodo()
 
           variable['libros']=listaLibros
           variable['lista']=lista
-          variable['det_libro']=det_libro
+          # variable['det_libro']=det_libro
           variable['mensaje']='Con datos'
 
      except:
