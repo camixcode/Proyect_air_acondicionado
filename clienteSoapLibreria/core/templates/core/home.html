@@ -4,9 +4,52 @@
 
 $(function(){
         $("#form_buscar").on('submit',function(){
-        controller = Controller()
-        det_libro = controller.mostrarUnLibro($(codigo).val())
-        console.log(det_libro)
+                var formData = new FormData(this);
+                $.ajax({
+                        url : "{% url 'post_buscar' %}",
+                        type : "POST",
+                        data : formData,
+                        processData : false,
+                        contentType:false,
+                        success : function(respuesta){
+                                $("#nombre").val(respuesta.nombre);
+                                $("#stock_disponible").val(respuesta.stock);
+                                $("#precio").val(respuesta.precio);
+                                $("#codigo_oculto").val(respuesta.codigo);
+                                $("#vigencia").val(respuesta.vigencia);
+                                $("#autor").val(respuesta.autor);
+
+                        }
+                
+
+                });
+                return false
+        });
+
+        $(function(){
+                $("#form_actualizar").on('submit',function(){
+                        var formData = new FormData(this);
+                        $.ajax({
+                                url : "{% url 'post_actualizar' %}",
+                                type : "POST",
+                                data : formData,
+                                processData : false,
+                                contentType:false,
+                                success : function(respuesta){
+                                        var mensaje = respuesta.mensaje
+                                        if(mensaje)
+                                                alert("Datos actualizados");
+                                        else
+                                                alert("Error")
+                                
+        
+                                }
+                        
+        
+                        });
+                        return false
+                });
+        
         });
 
 });
@@ -15,6 +58,8 @@ $(function(){
 
 
 </script>
+
+
 
 <h3>Consumo Cliente</h3>
 

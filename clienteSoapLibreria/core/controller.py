@@ -14,7 +14,15 @@ class Controller:
         return resultado
     
     def mostrarUnLibro(self):
-        resultado = self.cliente.service.consultarunLibro(id)
+        libro = self.cliente.service.consultarunLibro(id)
+        return libro
+    
+    def buscarUnLibro(self, cod):
+        libro = self.cliente.service.consultarunLibro(cod)
+        return libro
+    
+    def descontarStock(self,cod,stock):
+        resultado = self.cliente.service.actualizarStock(cod,stock)
         return resultado
     
     def buscarTodo(self):
