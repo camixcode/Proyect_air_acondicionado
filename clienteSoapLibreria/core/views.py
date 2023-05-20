@@ -2,6 +2,10 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from .controller import Controller
 from .libro import Libro
+from .forms import CustomerUserCreationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect,render
 
 # Create your views here.
 def home(request):
@@ -71,3 +75,20 @@ def actualizarStockProducto(request):
      return JsonResponse({
           'mensaje': resultado
      })
+
+def registro (request):
+    data = {
+        'form' : CustomerUserCreationForm
+    }
+    if request.method == 'POST':
+        formulario = CustomerUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            print(formulario.cleaned_data["username"])
+            formulario.save()
+            messages.success(request, "Te has registrado correctamente")
+            user = authenticate(
+                username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            return redirect(to="index")
+        data["form"] = formulario
+    return render (request, 'registration/registro.html', data)

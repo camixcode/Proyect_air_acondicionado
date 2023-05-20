@@ -26,19 +26,19 @@ class Controller:
         resultado = self.cliente.service.actualizarStock(cod,stock)
         return resultado
     
-    def buscarTodo(self):
-        listaLibro =[]
-        lista = self.cliente.service.consultarLibros()
-        for i in range (len(lista)):
-            libro = Libro(lista[i]['id_producto'],
-                          lista[i]['nombre'],
-                          lista[i]['precio'],
-                          lista[i]['stock'],
-                          lista[i]['autor'],
-                          lista[i]['vigencia']
-                          )
-            listaLibro.append(libro)
-        return listaLibro
+    # def buscarTodo(self):
+    #     listaLibro =[]
+    #     lista = self.cliente.service.consultarLibros()
+    #     for i in range (len(lista)):
+    #         libro = Libro(lista[i]['id_producto'],
+    #                       lista[i]['nombre'],
+    #                       lista[i]['precio'],
+    #                       lista[i]['stock'],
+    #                       lista[i]['autor'],
+    #                       lista[i]['vigencia']
+    #                       )
+    #         listaLibro.append(libro)
+    #     return listaLibro
     
 
     # Web service Bodega
@@ -57,18 +57,7 @@ class Controller:
         resultado = self.cliente.service.actualizarStockProducto(cod,stock)
         return resultado
     
-    def buscarTodo(self):
-        listaProducto =[]
-        lista = self.cliente.service.consultarProductos()
-        for i in range (len(lista)):
-            producto = Producto(lista[i]['id_producto'],
-                          lista[i]['nombre'],
-                          lista[i]['precio_bruto'],
-                          lista[i]['stock'],
-                          lista[i]['fecha_entrega'],
-                          lista[i]['categoria']
-                          )
-            listaProducto.append(producto)
-        return listaProducto
+
+
 
 
