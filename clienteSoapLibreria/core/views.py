@@ -46,7 +46,6 @@ def actualizarLibro(request):
      codigo = request.POST.get('codigo_oculto')
      stock = request.POST.get('stock')
      resultado = controller.descontarStock(codigo,stock)
-
      return JsonResponse({
           'mensaje': resultado
      })
