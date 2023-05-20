@@ -6,20 +6,20 @@ from .libro import Libro
 # Create your views here.
 def home(request):
      variable = {
-          'libros': '',
+          'productos': '',
           'det_libro': '',
-          'lista':'',
+          # 'lista':'',
           'mensaje':''
      }
 
      controller = Controller()
-     listaLibros = controller.mostrarLibros()
+     
      # det_libro = controller.mostrarUnLibro()
      try:
-          lista = controller.buscarTodo()
-
-          variable['libros']=listaLibros
-          variable['lista']=lista
+          # lista = controller.buscarTodo()
+          listaProductos = controller.mostrarProductos()
+          variable['productos']=listaProductos
+          # variable['lista']=lista
           # variable['det_libro']=det_libro
           variable['mensaje']='Con datos'
 

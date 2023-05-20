@@ -1,5 +1,6 @@
 from zeep import Client
 from .libro import Libro
+from .producto import Producto
 
 class Controller:
     wsdl= 'http://localhost:8080/Soap/aireAcondicionado?wsdl'
@@ -38,4 +39,36 @@ class Controller:
                           )
             listaLibro.append(libro)
         return listaLibro
+    
+
+    # Web service Bodega
+
+
+    def mostrarProductos(self):
+        resultado = self.cliente.service.consultarProductos()
+        return resultado
+    
+
+    def buscarUnProducto(self, cod):
+        producto = self.cliente.service.consultarunProducto(cod)
+        return producto
+    
+    def descontarStock(self,cod,stock):
+        resultado = self.cliente.service.actualizarStockProducto(cod,stock)
+        return resultado
+    
+    def buscarTodo(self):
+        listaProducto =[]
+        lista = self.cliente.service.consultarProductos()
+        for i in range (len(lista)):
+            producto = Producto(lista[i]['id_producto'],
+                          lista[i]['nombre'],
+                          lista[i]['precio_bruto'],
+                          lista[i]['stock'],
+                          lista[i]['fecha_entrega'],
+                          lista[i]['categoria']
+                          )
+            listaProducto.append(producto)
+        return listaProducto
+
 

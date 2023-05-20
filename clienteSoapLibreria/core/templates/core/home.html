@@ -100,14 +100,14 @@
                 <th data-field="vigencia">Vigencia Libro </th>
         </thead>
         <tbody>
-                {% for lib in libros %}
+                {% for pro in productos %}
                 <tr>
-                        <td>{{lib.id_producto}}</td>
-                        <td>{{lib.nombre}}</td>
-                        <td>{{lib.precio}}</td>
-                        <td>{{lib.stock}}</td>f
-                        <td>{{lib.autor}}</td>
-                        <td>{{lib.vigencia}}</td>
+                        <td>{{pro.id_producto}}</td>
+                        <td>{{pro.nombre}}</td>
+                        <td>{{pro.precio_bruto}}</td>
+                        <td>{{pro.stock}}</td>f
+                        <td>{{pro.fecha_entrega}}</td>
+                        <td>{{pro.categoria}}</td>
                 </tr>
                 {% endfor %}
 
