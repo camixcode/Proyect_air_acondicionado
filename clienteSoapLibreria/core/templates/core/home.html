@@ -5,7 +5,7 @@
                 $("#form_buscar").on('submit',function(){
                     var formData = new FormData(this);
                     $.ajax({
-                        url: "{% url 'post_buscar' %}",
+                        url: "{% url 'post_buscar_producto' %}",
                         type:"POST",
                         data: formData,
                         processData: false,
@@ -13,10 +13,10 @@
                         success: function(respuesta){
                             $("#nombre").val(respuesta.nombre);
                             $("#stock_disponible").val(respuesta.stock);
-                            $("#precio").val(respuesta.precio);
+                            $("#precio_bruto").val(respuesta.precio_bruto);
                             $("#codigo_oculto").val(respuesta.codigo);
-                            $("#autor").val(respuesta.autor);
-                            $("#vigencia").val(respuesta.vigencia);
+                            $("#fecha_entrega").val(respuesta.fecha_entrega);
+                            $("#categoria").val(respuesta.categoria);
                         }
                     });
                     
@@ -28,7 +28,7 @@
                 $("#form_actualizar").on('submit',function(){
                     var formData = new FormData(this);
                     $.ajax({
-                        url: "{% url 'post_actualizar' %}",
+                        url: "{% url 'post_actualizar_producto' %}",
                         type:"POST",
                         data: formData,
                         processData: false,
@@ -72,12 +72,13 @@
                 <input type="text" name="nombre" id="nombre" readonly>
                 <span>Stock disponible: </span>
                 <input type="text" name="stock_disponible" id="stock_disponible" readonly>
-                <span>Precio: </span>
-                <input type="text" name="precio" id="precio" readonly>
-                <span>Autor: </span>
-                <input type="text" name="autor" id="autor" readonly>
-                <span>Vigencia: </span>
-                <input type="text" name="vigencia" id="vigencia" readonly>
+                <span>Precio Bruto: </span>
+               <input type="text" name="precio_bruto" id="precio_bruto" readonly>
+                <span>Fecha Entrega: </span>
+                <input type="text" name="fecha_entrega" id="fecha_entrega" readonly>
+                <span>Categoria: </span>
+                <input type="text" name="categoria" id="categoria" readonly>
+                <span>Codigo Producto: </span>
                 <input type="text" name="codigo_oculto" id="codigo_oculto" readonly>
                 <br>
                 <span>Ingrese cantidad a comprar: </span>
@@ -92,12 +93,12 @@
 <table id="tabla_datos" data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc"
         data-pagination="true" data-height="460" data-unique-id="codigo_id" data-search="true">
         <thead class="thead-inverse">
-                <th data-field="codigo_id">Código Libro </th>
-                <th data-field="nombre">Nombre Libro </th>
-                <th data-field="precio">Precio Libro </th>
-                <th data-field="stock">Stock Libro </th>
-                <th data-field="autor">Autor Libro </th>
-                <th data-field="vigencia">Vigencia Libro </th>
+                <th data-field="codigo_id">Código Producto </th>
+                <th data-field="nombre">Nombre Producto </th>
+                <th data-field="precio">Precio Bruto Producto </th>
+                <th data-field="stock">Stock Producto </th>
+                <th data-field="autor">Fecha entrega Producto </th>
+                <th data-field="vigencia">Categoria Producto </th>
         </thead>
         <tbody>
                 {% for pro in productos %}

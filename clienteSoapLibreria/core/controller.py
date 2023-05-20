@@ -50,10 +50,10 @@ class Controller:
     
 
     def buscarUnProducto(self, cod):
-        producto = self.cliente.service.consultarunProducto(cod)
+        producto = self.cliente.service.consultarUnProducto(cod)
         return producto
     
-    def descontarStock(self,cod,stock):
+    def descontarStockProducto(self,cod,stock):
         resultado = self.cliente.service.actualizarStockProducto(cod,stock)
         return resultado
     

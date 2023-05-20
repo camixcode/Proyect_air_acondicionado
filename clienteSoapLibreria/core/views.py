@@ -49,3 +49,25 @@ def actualizarLibro(request):
      return JsonResponse({
           'mensaje': resultado
      })
+
+def buscarProducto(request):
+     controller = Controller()
+     codigo = request.POST.get('codigo')
+     producto = controller.buscarUnProducto(codigo)
+     return JsonResponse({
+          'codigo' : producto.id_producto,
+          'nombre' : producto.nombre,
+          'stock' : producto.stock,
+          'precio_bruto': producto.precio_bruto,
+          'fecha_entrega' : producto.fecha_entrega,
+          'categoria' : producto.categoria
+     })
+
+def actualizarStockProducto(request):
+     controller = Controller()
+     codigo = request.POST.get('codigo_oculto')
+     stock = request.POST.get('stock')
+     resultado = controller.descontarStockProducto(codigo,stock)
+     return JsonResponse({
+          'mensaje': resultado
+     })
