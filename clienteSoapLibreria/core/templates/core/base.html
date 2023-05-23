@@ -8,7 +8,9 @@
         <script src="{% static 'core/bootstrap/dist/bootstrap-table.js' %}"></script>
         <link href="{% static 'core/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
         <link href="{% static 'core/bootstrap/dist/bootstrap-table.css' %}" rel="stylesheet">
-     
+        {% block content %}
+        {% include 'navbar.html'%}
+        {% endblock %}
         
     </head>
     <body><br><br><br>
