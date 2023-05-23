@@ -52,7 +52,9 @@
         
         </script>
 
-
+{% block content %}
+{% include 'navbar.html'%}
+{% endblock %}
 
 <h3>Consumo Cliente</h3>
 
@@ -86,9 +88,10 @@
                 <span>Ingrese cantidad a comprar: </span>
                 <input type="text" name="stock" id="stock">
                 <button type="submit" class="btn btn-success">Actualizar Stock Libro</button>
+                
         </div>
 </form>
-
+<a class="dropdown-item" href="{% url 'productos' %}"><p class="text-md-center text-black fs-6" >Administrar taller</p></a>
 {{mensaje}}
 
 

@@ -92,3 +92,6 @@ def registro (request):
             return redirect(to="home")
         data["form"] = formulario
     return render (request, 'registration/registro.html', data)
+
+def productos(request):
+    return render(request, 'core/productos.html')
