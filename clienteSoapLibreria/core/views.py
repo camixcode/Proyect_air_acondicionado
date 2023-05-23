@@ -89,6 +89,6 @@ def registro (request):
             user = authenticate(
                 username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
             login(request, user)
-            return redirect(to="index")
+            return redirect(to="home")
         data["form"] = formulario
     return render (request, 'registration/registro.html', data)
