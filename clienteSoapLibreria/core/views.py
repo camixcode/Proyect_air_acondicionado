@@ -95,3 +95,6 @@ def registro (request):
 
 def productos(request):
     return render(request, 'core/productos.html')
+
+def historicoVenta(request):
+    return render(request, 'core/historicoVenta.html')
