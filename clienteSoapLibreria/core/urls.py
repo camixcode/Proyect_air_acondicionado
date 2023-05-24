@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import historicoVenta, home,buscarLibro,actualizarLibro,buscarProducto,actualizarStockProducto, productos, registro
+from .views import historialVenta, home,buscarLibro,actualizarLibro,buscarProducto,actualizarStockProducto, productos, registro
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,7 +9,7 @@ urlpatterns = [
     path('post/ajax/actualizar_producto/',actualizarStockProducto, name='post_actualizar_producto'),
     path('registro',registro, name="registro"),
     path('productos',productos, name="productos"),
-    path('historicoVenta',historicoVenta, name="historicoVenta"),
+    path('historialVenta',historialVenta, name="historialVenta"),
 
 
 
