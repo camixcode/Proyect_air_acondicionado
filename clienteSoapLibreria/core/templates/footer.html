@@ -1,62 +1,98 @@
+<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 {% load static %}
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="{% static 'core/css/Footer.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'core/css/Footer.css'%}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
 
 
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 120px; /* Altura del footer */
+            background-color: black;
+            color: beige;
+            font-family: 'Poppins', sans-serif;
+            padding: 0px;
+        }
+    </style>
 </head>
 
 <body>
-	<footer>
-		<div class="container-fluid  text-black p-3 rounded-top ml-10 mr-10"
-		style="font-family: 'Poppins', sans-serif; background: black">
-			<div class="row justify-content-around text-center text-md-start" style="color: beige;">
-				<div class="col-md-6 text-center">
-					<p class="fs-3 fw-bold">SmartParking</p>
-					<hr>
-					<p class="fs-6 fw-bold"><cite title="Source Title">Nuestra empresa realiza el servicio de control de estacionamiento, refiriéndonos con esto a la administración y monitoreo de los espacios de estacionamiento públicos, privados y municipales.</cite></p>
-				</div>
-				<div class="col-md-2">
-					<ul class="list-unstyled">
-						<li class="fw-bold my-2"><h5>Sobre el equipo</h5></li>
-						<li> <a href="#" class="text-decoration-none text-color" style="color: beige;"><h6>Proyecto</h6></a> </li>
-						<li> <a href="#" class="text-decoration-none text-color" style="color: beige;"><h6>Servicios</h6></a> </li>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					<ul class="list-unstyled">
-						<li class="fw-bold my-2"><h5>Mesa de ayuda</h5></li>
-						<li class="mb-2"> <a href="#" class="text-decoration-none text-color" style="color: beige;"><h6>Contacto</h6></a> </li>
-						<li> <a href="#" class="text-decoration-none text-color" style="color: beige;" ><h6>Soporte </h6></a> </li>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					<li class="fw-bold my-2 list-unstyled"><h5>Siguenos en redes sociales</h5></li>
-					<ul 
-					class="list-unstyled d-flex justify-content-center justify-content-md-start">
-						<li><a href="#" 
-							class="text-black"><i 
-							class="fa-brands fa-facebook me-2 fa-1x" style="color: beige;"></i></a></li>
-						<li><a href="#" class="text-color"><i class="fa-brands fa-whatsapp mx-2 fa-1x" style="color: beige;"></i></a></li>
-						<li><a href="#" class="text-black"><i class="fa-brands fa-youtube mx-2 fa-1x" style="color: beige;"></i></a></li>
-						<li><a href="#" class="text-black"><i class="fa-brands fa-instagram mx-2 fa-1x" style="color: beige;"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row justify-content-around text-center text-md-start">
+                <div class="col-md-6 text-center">
+                    <p class="fs-4 fw-bold">BuenosAires</p>
+                    <hr>
+                    <p class="fs-6 fw-bold"><cite title="Source Title">Apuntamos a un servicio de escala mundial</cite></p>
+                </div>
+                <div class="col-md-2">
+                    <ul class="list-unstyled">
+                        <li class="fw-bold my-2">
+                            <h5>Sobre el equipo</h5>
+                        </li>
+                        <li> <a href="#" class="text-decoration-none text-color" style="color: beige;">
+                                <h6>Proyecto</h6>
+                            </a> </li>
+                        <li> <a href="#" class="text-decoration-none text-color" style="color: beige;">
+                                <h6>Servicios</h6>
+                            </a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="list-unstyled">
+                        <li class="fw-bold my-2">
+                            <h5>Mesa de ayuda</h5>
+                        </li>
+                        <li class="mb-2"> <a href="#" class="text-decoration-none text-color" style="color: beige;">
+                                <h6>Contacto</h6>
+                            </a> </li>
+                        <li> <a href="#" class="text-decoration-none text-color" style="color: beige;">
+                                <h6>Soporte </h6>
+                            </a> </li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <li class="fw-bold my-2 list-unstyled">
+                        <h5>Siguenos en redes sociales</h5>
+                    </li>
+                    <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
+                        <li><a href="#" class="text-black"><i class="fa-brands fa-facebook me-2 fa-1x"
+                                    style="color: beige;"></i></a></li>
+                        <li><a href="#" class="text-color"><i class="fa-brands fa-whatsapp mx-2 fa-1x"
+                                    style="color: beige;"></i></a></li>
+                        <li><a href="#" class="text-black"><i class="fa-brands fa-youtube mx-2 fa-1x"
+                                    style="color: beige;"></i></a></li>
+                        <li><a href="#" class="text-black"><i class="fa-brands fa-instagram mx-2 fa-1x"
+                                    style="color: beige;"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
