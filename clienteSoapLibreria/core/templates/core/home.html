@@ -54,69 +54,90 @@
 
 
 
-<h3>Consumo Cliente</h3>
-
-<h3>Formulario -Consulta</h3>
-<form method="post" id="form_buscar">
-        {% csrf_token %}
-        <div class="form-group">
-                <span>Ingrese Código: </span>
-                <input type="text" name="codigo" id="codigo">
-                <button type="submit" class="btn btn-success">Obtener Libro</button>
-        </div>
-</form>
-
-<br>
-<form method="post" id="form_actualizar">
-        {% csrf_token %}
-        <div class="form-group">
-                <span>Nombre del Libro: </span>
-                <input type="text" name="nombre" id="nombre" readonly>
-                <span>Stock disponible: </span>
-                <input type="text" name="stock_disponible" id="stock_disponible" readonly>
-                <span>Precio Bruto: </span>
-               <input type="text" name="precio_bruto" id="precio_bruto" readonly>
-                <span>Fecha Entrega: </span>
-                <input type="text" name="fecha_entrega" id="fecha_entrega" readonly>
-                <span>Categoria: </span>
-                <input type="text" name="categoria" id="categoria" readonly>
-                <span>Codigo Producto: </span>
-                <input type="text" name="codigo_oculto" id="codigo_oculto" readonly>
-                <br>
-                <span>Ingrese cantidad a comprar: </span>
-                <input type="text" name="stock" id="stock">
-                <button type="submit" class="btn btn-success">Actualizar Stock Libro</button>
-                
-        </div>
-</form>
-<a class="dropdown-item" href="{% url 'productos' %}"><p class="text-md-center text-black fs-6" >Administrar taller</p></a>
-{{mensaje}}
-
-
-<table id="tabla_datos" data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc"
-        data-pagination="true" data-height="460" data-unique-id="codigo_id" data-search="true">
-        <thead class="thead-inverse">
-                <th data-field="codigo_id">Código Producto </th>
-                <th data-field="nombre">Nombre Producto </th>
-                <th data-field="precio">Precio Bruto Producto </th>
-                <th data-field="stock">Stock Producto </th>
-                <th data-field="autor">Fecha entrega Producto </th>
-                <th data-field="vigencia">Categoria Producto </th>
-        </thead>
-        <tbody>
+<div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <h3>Consumo Cliente</h3>
+      
+            <h3>Formulario - Consulta</h3>
+            <form method="post" id="form_buscar">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="codigo">Ingrese Código:</label>
+                <div class="input-group">
+                  <input type="text" name="codigo" id="codigo" class="form-control">
+                  <button type="submit" class="btn btn-success">Obtener Libro</button>
+                </div>
+              </div>
+            </form>
+      
+            <br>
+      
+            <form method="post" id="form_actualizar">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="nombre">Nombre del Libro:</label>
+                <input type="text" name="nombre" id="nombre" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="stock_disponible">Stock disponible:</label>
+                <input type="text" name="stock_disponible" id="stock_disponible" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="precio_bruto">Precio Bruto:</label>
+                <input type="text" name="precio_bruto" id="precio_bruto" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="fecha_entrega">Fecha Entrega:</label>
+                <input type="text" name="fecha_entrega" id="fecha_entrega" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <input type="text" name="categoria" id="categoria" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="codigo_oculto">Código Producto:</label>
+                <input type="text" name="codigo_oculto" id="codigo_oculto" readonly class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="stock">Ingrese cantidad a comprar:</label>
+                <div class="input-group">
+                  <input type="text" name="stock" id="stock" class="form-control">
+                  <button type="submit" class="btn btn-success">Actualizar Stock Libro</button>
+                </div>
+              </div>
+            </form>
+      
+            <a class="dropdown-item" href="{% url 'productos' %}">
+              <p class="text-md-center text-black fs-6">Administrar taller</p>
+            </a>
+      
+            {{ mensaje }}
+      
+            <table id="tabla_datos" data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc" data-pagination="true" data-height="460" data-unique-id="codigo_id" data-search="true">
+              <thead class="thead-inverse">
+                <th data-field="codigo_id">Código Producto</th>
+                <th data-field="nombre">Nombre Producto</th>
+                <th data-field="precio">Precio Bruto Producto</th>
+                <th data-field="stock">Stock Producto</th>
+                <th data-field="autor">Fecha entrega Producto</th>
+                <th data-field="vigencia">Categoría Producto</th>
+              </thead>
+              <tbody>
                 {% for pro in productos %}
                 <tr>
-                        <td>{{pro.id_producto}}</td>
-                        <td>{{pro.nombre}}</td>
-                        <td>{{pro.precio_bruto}}</td>
-                        <td>{{pro.stock}}</td>f
-                        <td>{{pro.fecha_entrega}}</td>
-                        <td>{{pro.categoria}}</td>
+                  <td>{{ pro.id_producto }}</td>
+                  <td>{{ pro.nombre }}</td>
+                  <td>{{ pro.precio_bruto }}</td>
+                  <td>{{ pro.stock }}</td>
+                  <td>{{ pro.fecha_entrega }}</td>
+                  <td>{{ pro.categoria }}</td>
                 </tr>
                 {% endfor %}
-
-
-        </tbody>
-
-</table>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
 {% endblock contenido %}
