@@ -101,3 +101,6 @@ def historialVenta(request):
 
 def inicio(request):
     return render(request, 'core/inicio.html')
+
+def adminServicios(request):
+    return render(request, 'core/adminServicios.html')
