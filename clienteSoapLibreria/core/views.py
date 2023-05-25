@@ -94,7 +94,20 @@ def registro (request):
     return render (request, 'registration/registro.html', data)
 
 def productos(request):
-    return render(request, 'core/productos.html')
+    variable = {
+         'productos':'',
+         'mensaje' : ''
+    }
+    controler = Controller()
+
+    try:
+         listaProductos = controler.mostrarProductos()
+         variable['productos'] = listaProductos
+         variable['mensaje'] = 'Busqueda exitosa'
+    except:
+         variable['mensaje'] = 'Error productos no encontrados'
+         
+    return render(request, 'core/productos.html',variable)
 
 def historialVenta(request):
     return render(request, 'core/historialVenta.html')
