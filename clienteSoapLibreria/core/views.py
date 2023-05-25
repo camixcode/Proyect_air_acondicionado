@@ -98,3 +98,6 @@ def productos(request):
 
 def historialVenta(request):
     return render(request, 'core/historialVenta.html')
+
+def inicio(request):
+    return render(request, 'core/inicio.html')
