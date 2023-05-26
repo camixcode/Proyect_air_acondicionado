@@ -13,7 +13,8 @@ def home(request):
           'productos': '',
           'det_libro': '',
           # 'lista':'',
-          'mensaje':''
+          'mensaje':'',
+          'preference_id':'',
      }
 
      controller = Controller()
@@ -23,6 +24,8 @@ def home(request):
           # lista = controller.buscarTodo()
           listaProductos = controller.mostrarProductos()
           variable['productos']=listaProductos
+          preferencias = controller.pagar()
+          variable['preference_id']=preferencias["response"]["id"]
           # variable['lista']=lista
           # variable['det_libro']=det_libro
           variable['mensaje']='Con datos'
@@ -110,7 +113,19 @@ def productos(request):
     return render(request, 'core/productos.html',variable)
 
 def historialVenta(request):
-    return render(request, 'core/historialVenta.html')
+     variable = {
+          'preference_id':'',
+     }
+
+     controller = Controller()
+     
+     try:
+          preferencias = controller.pagar()
+          variable['preference_id']=preferencias["response"]["id"]
+     except:
+          variable['mensaje']='sin datos'
+
+     return render(request,'core/historialVenta.html',variable)
 
 def inicio(request):
     return render(request, 'core/inicio.html')
