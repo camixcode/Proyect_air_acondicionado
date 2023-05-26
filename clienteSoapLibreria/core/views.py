@@ -6,8 +6,34 @@ from .forms import CustomerUserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect,render
+from .Carrito import Carrito
 
 # Create your views here.
+def agregar_producto(request, producto_id):
+    carrito = Carrito(request)
+#     producto = Producto.objects.get(idProducto=producto_id)
+#     carrito.agregar_producto(producto)
+    return redirect("Producto")
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+#     producto = Producto.objects.get(idProducto=producto_id)
+#     carrito.eliminar(producto)
+    return redirect("Producto")
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+#     producto = Producto.objects.get(idProducto=producto_id)
+#     carrito.restar(producto)
+    return redirect("Producto") 
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)   
+    carrito.limpiar()
+    return redirect("Producto") 
+
+
+
 def home(request):
      variable = {
           'productos': '',
@@ -107,6 +133,8 @@ def productos(request):
          listaProductos = controler.mostrarProductos()
          variable['productos'] = listaProductos
          variable['mensaje'] = 'Busqueda exitosa'
+         preferencias = controler.pagar()
+         variable['preference_id']=preferencias["response"]["id"]
     except:
          variable['mensaje'] = 'Error productos no encontrados'
          
