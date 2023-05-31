@@ -7,24 +7,25 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect,render
 from .Carrito import Carrito
+from .producto import Producto
 
 # Create your views here.
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
-#     producto = Producto.objects.get(idProducto=producto_id)
-#     carrito.agregar_producto(producto)
+    producto = Producto.objects.get(id_producto=producto_id)
+    carrito.agregar_producto(producto)
     return redirect("Producto")
 
 def eliminar_producto(request, producto_id):
     carrito = Carrito(request)
-#     producto = Producto.objects.get(idProducto=producto_id)
-#     carrito.eliminar(producto)
+    producto = Producto.objects.get(id_producto=producto_id)
+    carrito.eliminar(producto)
     return redirect("Producto")
 
 def restar_producto(request, producto_id):
     carrito = Carrito(request)
-#     producto = Producto.objects.get(idProducto=producto_id)
-#     carrito.restar(producto)
+    producto = Producto.objects.get(id_producto=producto_id)
+    carrito.restar(producto)
     return redirect("Producto") 
 
 def limpiar_carrito(request):
