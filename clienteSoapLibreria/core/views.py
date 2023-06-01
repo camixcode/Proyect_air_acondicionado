@@ -166,3 +166,6 @@ def inicio(request):
 
 def adminServicios(request):
     return render(request, 'core/adminServicios.html')
+
+def servicios(request):
+    return render(request, 'core/servicios.html')
