@@ -1,1 +1,248 @@
-<h1>holis</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Productos</title>
+
+    <div class="container-fluid" style="padding:3%;">
+        {% block content %}
+        {% include 'navbar.html'%}
+        {% endblock %}
+    </div>
+</head>
+
+
+<!-- INTEGRACION -->
+{{preference_id}}
+
+
+<!-- // SDK MercadoPago.js -->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
+<script>
+//CLAVE UNICA DEL VENDEDOR -->
+const mp = new MercadoPago('TEST-1a1db5fe-d60e-4b94-8a0b-35ba087950e4');
+const bricksBuilder = mp.bricks();
+
+mp.bricks().create("wallet", "wallet_container", {
+   initialization: {
+       preferenceId: "{{preference_id}}",
+   },
+});
+
+</script>
+
+<div id="wallet_container"></div>
+
+<!-- FIN INTEGRACION -->
+
+
+
+
+<body>
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(213, 78, 78, 0.5);
+        }
+
+        html {
+            min-height: 100%;
+            position: relative;
+        }
+
+        body {
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background-color: black;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            padding-bottom: 100px; /* Ajusta el espacio para el footer */
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="container-fluid" style="margin-bottom: 120px;">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                    
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This card has supporting text below as a natural lead-in to
+                                    additional
+                                    content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This card has even longer content than the first to show that
+                                    equal
+                                    height action.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-20">
+                            <div class="card-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>
+                {% include 'footer.html'%}
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-X8TZRa0FSGLAtvBlTsQ05mC6h54gXP+2i2+kl3DVoQeTQuu/dxU0Fjlzv8QqXdQ4"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>
