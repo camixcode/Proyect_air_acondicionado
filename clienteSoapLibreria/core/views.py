@@ -12,26 +12,28 @@ from .producto import Producto
 # Create your views here.
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id_producto=producto_id)
+    controller = Controller()
+    producto = controller.buscarUnProductoAnwo(producto_id)
     carrito.agregar_producto(producto)
-    return redirect("Producto")
+    return redirect("productos")
 
 def eliminar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id_producto=producto_id)
+    controller = Controller()
+    producto = controller.buscarUnProducto(producto_id)
     carrito.eliminar(producto)
-    return redirect("Producto")
+    return redirect("productos")
 
 def restar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id_producto=producto_id)
     carrito.restar(producto)
-    return redirect("Producto") 
+    return redirect("productos") 
 
 def limpiar_carrito(request):
     carrito = Carrito(request)   
     carrito.limpiar()
-    return redirect("Producto") 
+    return redirect("productos") 
 
 
 

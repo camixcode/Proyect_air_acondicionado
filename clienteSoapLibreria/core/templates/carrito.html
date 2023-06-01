@@ -22,9 +22,9 @@
                 <td>{{value.nombre}}</td>
                 <td>{{value.acumulado}} </td>
                 <td>{{value.cantidad}}
-                    <a href="#" class="badge btn btn-dark badge-dark "> + </a>
+                    <a href="http://127.0.0.1:8000/agregar_producto/{{value.producto_id}}" class="badge btn btn-dark badge-dark "> + </a>
 
-                    <a href="#" class="badge btn btn-dark badge-dark "> - </a>
+                    <a href="http://127.0.0.1:8000/restar_producto/{{value.producto_id}}"  class="badge btn btn-dark badge-dark "> - </a>
                 </td>
             </tr>
             {% endfor %}
@@ -45,7 +45,7 @@
 </div>
 <div class="row text-center ">
     <div class="col-4 ">
-        <a href="# " class="btn btn-danger ">Limpiar</a>
+        <a href="{% url 'cls' %} " class="btn btn-danger ">Limpiar</a>
     </div>
     <div class="col-4 ">
         <!-- INTEGRACION -->
