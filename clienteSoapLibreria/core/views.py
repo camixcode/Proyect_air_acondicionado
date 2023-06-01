@@ -26,7 +26,8 @@ def eliminar_producto(request, producto_id):
 
 def restar_producto(request, producto_id):
     carrito = Carrito(request)
-    producto = Producto.objects.get(id_producto=producto_id)
+    controller = Controller()
+    producto = controller.buscarUnProductoAnwo(producto_id)
     carrito.restar(producto)
     return redirect("productos") 
 

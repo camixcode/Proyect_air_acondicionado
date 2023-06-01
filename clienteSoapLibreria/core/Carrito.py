@@ -20,11 +20,12 @@ class Carrito:
                 "producto_id" : producto.id_producto,
                 "nombre": producto.nombre,
                 "acumulado": producto.precio_bruto,
-                "cantidad": 1,
+                "cantidad": 1
             }
         else:
             self.carrito[id]["cantidad"] += 1
             self.carrito[id]["acumulado"] += producto.precio_bruto
+            
         self.guardar_carrito()
 
     def guardar_carrito(self):
