@@ -126,13 +126,16 @@ def registro (request):
 def productos(request):
     variable = {
          'productos':'',
-         'mensaje' : ''
+         'mensaje' : '',
+         'productos_aw':''
     }
     controler = Controller()
 
     try:
          listaProductos = controler.mostrarProductos()
-         variable['productos'] = listaProductos
+         listaProductosAw = controler.mostrarProductosAnwo()
+         variable['productos'] = listaProductos + listaProductosAw
+
          variable['mensaje'] = 'Busqueda exitosa'
          preferencias = controler.pagar()
          variable['preference_id']=preferencias["response"]["id"]

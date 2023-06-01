@@ -64,6 +64,23 @@ class Controller:
         resultado = self.cliente.service.actualizarStockProducto(cod,stock)
         return resultado
     
+
+     # Web service Anwo
+
+
+    def mostrarProductosAnwo(self):
+        resultado = self.cliente.service.consultarProductosAnwo()
+        return resultado
+    
+
+    def buscarUnProductoAnwo(self, cod):
+        producto = self.cliente.service.consultarUnProductoAnwo(cod)
+        return producto
+    
+    def descontarStockProductoAnwo(self,cod,stock):
+        resultado = self.cliente.service.actualizarStockProductoAnwo(cod,stock)
+        return resultado
+    
     def pagar(self):
         # Agrega credenciales
         sdk = mercadopago.SDK("TEST-8089418270941450-052521-0d2b104ed9c05b1dd8dbdd973340f776-1381512793")
