@@ -13,6 +13,14 @@ from .producto import Producto
 def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     controller = Controller()
+    producto = controller.buscarUnProducto(producto_id)
+    carrito.agregar_producto(producto)
+    return redirect("productos")
+
+
+def agregar_producto_anwo(request, producto_id):
+    carrito = Carrito(request)
+    controller = Controller()
     producto = controller.buscarUnProductoAnwo(producto_id)
     carrito.agregar_producto(producto)
     return redirect("productos")

@@ -75,10 +75,19 @@
 
 
                                 </div>
+
+                                {% if pr.categoria == 'Bodega' %}
                                 <div class="card-footer">
                                     <a href=" http://127.0.0.1:8000/agregar_producto/{{pr.id_producto}} " class="btn btn-primary">
                                      Agregar a Carrito</a>
                                 </div>
+                                {% elif pr.categoria == 'Anwo' %}
+
+                                <div class="card-footer">
+                                    <a href=" http://127.0.0.1:8000/agregar_producto_anwo/{{pr.id_producto}} " class="btn btn-primary">
+                                     Agregar a Carrito</a>
+                                </div>
+                                {%  endif %}
                             </div>
                         </div>
                         {% endfor %}
