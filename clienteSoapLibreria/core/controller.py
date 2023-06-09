@@ -13,6 +13,17 @@ class Controller:
     wsdl= 'http://localhost:8080/Soap/aireAcondicionado?wsdl'
     cliente = Client(wsdl)
 
+# WSDL RUTA QUE SE ENTREGA 
+    wsdl2= 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL'
+    cliente2 = Client(wsdl2)
+
+# Metodos que tiene el WebService 
+
+    def buscarUnPais(self, cod):
+        # Metodo de web service tiene que llamarse igual 
+        pais = self.cliente2.service.FullCountryInfo(cod)
+        return pais
+    
     def sumar(self):
         resultado = self.cliente.service.sumar(3,4)
         return resultado

@@ -53,12 +53,16 @@ def home(request):
           # 'lista':'',
           'mensaje':'',
           'preference_id':'',
+          'pais':'',
      }
 
      controller = Controller()
      
      # det_libro = controller.mostrarUnLibro()
      try:
+          pais = controller.buscarUnPais('CL')
+          print(pais)
+          variable['pais'] = controller.buscarUnPais('CL')
           # lista = controller.buscarTodo()
           listaProductos = controller.mostrarProductos()
           variable['productos']=listaProductos
@@ -135,18 +139,23 @@ def registro (request):
     return render (request, 'registration/registro.html', data)
 
 def productos(request):
+#     instanciar variables para retornar
     variable = {
          'productos':'',
          'mensaje' : '',
-         'productos_aw':''
+         'productos_aw':'',
+         'pais':'',
+
     }
     controler = Controller()
 
     try:
          listaProductos = controler.mostrarProductos()
          listaProductosAw = controler.mostrarProductosAnwo()
-         variable['productos'] = listaProductos + listaProductosAw
 
+         
+         variable['productos'] = listaProductos + listaProductosAw
+         
          variable['mensaje'] = 'Busqueda exitosa'
          preferencias = controler.pagar()
          variable['preference_id']=preferencias["response"]["id"]
