@@ -17,12 +17,12 @@ class Controller:
     wsdl2= 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL'
     cliente2 = Client(wsdl2)
 
-# Metodos que tiene el WebService 
+# Metodos que tiene el WebService
 
-    def buscarUnPais(self, cod):
+    def buscarPaises(self):
         # Metodo de web service tiene que llamarse igual 
-        pais = self.cliente2.service.FullCountryInfo(cod)
-        return pais
+        paises = self.cliente2.service.FullCountryInfoAllCountries()
+        return paises
     
     def sumar(self):
         resultado = self.cliente.service.sumar(3,4)

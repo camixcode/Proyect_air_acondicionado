@@ -158,6 +158,39 @@
 
             </div>
         </div>
+        <table id="tabla_datos" data-toggle="table" data-sort-name="stargazers_count"
+data-sort-order="desc"
+data-pagination="true"
+data-height="460"
+data-unique-id="codigo_id"
+data-search="true">
+<thead class="thead-inverse">
+   <th data-field="ISOCode">ISOCode </th>     
+   <th data-field="Name">Name </th>  
+   <th data-field="CapitalCity">CapitalCity </th>  
+   <th data-field="PhoneCode">PhoneCode </th>  
+   <th data-field="ContinentCode">ContinentCode </th>  
+   <th data-field="CurrencyISOCode">CurrencyISOCode </th>
+   <th data-field="sCountryFlag">sCountryFlag</th>  
+   <th data-field="Languages">Languages </th>   
+</thead>
+<tbody>
+
+        {% for pais in paises %}
+        <tr>
+            <td>{{pais.sISOCode}}</td>
+            <td>{{pais.sName}}</td>
+            <td>{{pais.sCapitalCity}}</td>
+            <td>{{pais.sPhoneCode}}</td>
+            <td>{{pais.sContinentCode}}</td>
+            <td>{{pais.sCurrencyISOCode}}</td>
+            <td><img src="{{pais.sCountryFlag}}" width="20px" height="20px"></td>
+            <td>{{pais.Languages}}</td>
+        </tr>
+        {% endfor %}
+</tbody>
+
+</table>
     </div>
       
 {% endblock contenido %}

@@ -53,16 +53,16 @@ def home(request):
           # 'lista':'',
           'mensaje':'',
           'preference_id':'',
-          'pais':'',
+          'paises':'',
      }
 
      controller = Controller()
      
      # det_libro = controller.mostrarUnLibro()
      try:
-          pais = controller.buscarUnPais('CL')
-          print(pais)
-          variable['pais'] = controller.buscarUnPais('CL')
+          paises = controller.buscarPaises()
+          print(paises)
+          variable['paises'] = controller.buscarPaises()
           # lista = controller.buscarTodo()
           listaProductos = controller.mostrarProductos()
           variable['productos']=listaProductos
