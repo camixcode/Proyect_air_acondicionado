@@ -190,3 +190,7 @@ def servicios(request):
 
 def adminProvInst(request):
     return render(request, 'core/adminProvInst.html')
+
+
+def adminRoles (request):
+    return render (request, 'core/adminRoles.html')
