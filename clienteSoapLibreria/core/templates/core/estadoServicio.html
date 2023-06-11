@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuentasUsuarios</title>
+    <title>RolesAdmin.</title>
     <!-- Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -84,15 +84,8 @@
     <div class="container my-3 centered-element1 rounded" 
         style="background-color: rgb(62, 58, 58)">
         <p class="text-md-center text-light fs-3"> 
-            Lista Cuentas de Usuarios</p>
+            Lista de Servicios</p>
     </div>
-    <div class="container">
-        <div class="right">
-            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-6" 
-                    href="#"> Crear Cuenta</a></button>
-        </div>
-    </div>
-    <br>
     <!-- FIN BOTON AGREGAR TALLER ----------------------- -->
     <!-- TABLA -->
     <div class="container md-4 centered-element">
@@ -103,11 +96,12 @@
                         <table class="table table-striped dt-responsive" style="width:100%;" id="myTable">
                             <thead>
                                 <tr>
-                                    <th style="width:10%;">ID</th>
-                                    <th style="width:30%;">Nombre</th>
-                                    <th style="width:25%;">Correo</th>
-                                    <th style="width:20%;">Rol</th>
-                                    <th style="width:15%;">Acciones</th>
+                                    <th style="width:25%;">Número de Servicio</th>
+                                    <th style="width:15%;">Fecha Solicitud</th>
+                                    <th style="width:30%;">Técnico Asignado</th>
+                                    <th style="width:15%;">Fecha Entrega</th>
+                                    <th style="width:15%;">Estado</th>
+                                    <th style="width:10%;">Detalle</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,15 +111,15 @@
                                     <td>{{mt.nombreMaterial}}</td>
                                     <td>{{mt.descripcionMaterial}}</td>
                                     <td>{{mt.stock}}</td>
+                                    <td>{{mt.stock}}</td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                            <button class="btn btn-sm btn-danger">
-                                                <a href="#"
-                                                    onclick="eliminarMaterial">
-                                                    <i
-                                                    class="fa-solid fa-trash-can" style="color: aliceblue"></i>
+                                                <button class="btn btn-warning">
+                                                <a class="a"
+                                                    href="http://127.0.0.1:8000/Ver_Material/{{mt.idMaterial}}">
+                                                    <i class="fa-solid fa-eye" style="color: aliceblue"></i>
                                                 </a>
-                                            </button>
+                                                </button>
                                             </div>
                                         </td>
                                     </td>
@@ -138,8 +132,6 @@
             </div>
         </div>
     </div>
-
-
     <br>
     <!-- TABLE FIN-->
     <!-- ----------------------- -->

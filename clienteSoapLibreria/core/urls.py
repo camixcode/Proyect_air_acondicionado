@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import agregar_producto, agregar_producto_anwo, eliminar_producto, historialVenta, home,buscarLibro,actualizarLibro,buscarProducto,actualizarStockProducto, inicio, limpiar_carrito, productos, registro , adminServicios, restar_producto, servicios, adminProvInst, adminRoles
+from .views import agregar_producto, agregar_producto_anwo, eliminar_producto, historialVenta, home,buscarLibro,actualizarLibro,buscarProducto,actualizarStockProducto, inicio, limpiar_carrito, productos, registro , adminServicios, restar_producto, servicios, adminProvInst, adminRoles, cuentasUsuarios, seguimientoCompra, estadoServicio, adminSolicitudServicios
 
 urlpatterns = [
     path('',productos, name="productos"),
@@ -21,7 +21,10 @@ urlpatterns = [
     path('limpiar/', limpiar_carrito, name="cls"),
     path('servicios', servicios, name="servicios"),
     path('adminRoles',adminRoles, name="adminRoles"),
-
+    path('cuentasUsuarios',cuentasUsuarios,name="cuentasUsuarios"),
+    path('seguimientoCompra',seguimientoCompra, name="seguimientoDeCompra"),
+    path('estadoServicio',estadoServicio, name="estadoServicio"),
+    path('adminSolicitudServicios',adminSolicitudServicios, name="adminSolicitudServicios")
 
 
 

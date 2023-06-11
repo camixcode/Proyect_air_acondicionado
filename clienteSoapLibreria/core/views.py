@@ -194,3 +194,15 @@ def adminProvInst(request):
 
 def adminRoles (request):
     return render (request, 'core/adminRoles.html')
+
+def cuentasUsuarios (request):
+    return render (request, 'core/cuentasUsuarios.html')
+
+def seguimientoCompra (request):
+    return render (request, 'core/seguimientoCompra.html')
+
+def estadoServicio (request):
+    return render (request, 'core/estadoServicio.html')
+
+def adminSolicitudServicios (request):
+    return render (request, 'core/adminSolicitudServicios.html')

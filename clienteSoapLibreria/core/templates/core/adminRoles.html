@@ -88,7 +88,7 @@
     </div>
     <div class="container">
         <div class="right">
-            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-5" 
+            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-6" 
                     href="#"> Crear Rol</a></button>
         </div>
     </div>
@@ -103,15 +103,10 @@
                         <table class="table table-striped dt-responsive" style="width:100%;" id="myTable">
                             <thead>
                                 <tr>
-                                    <th style="width:5%;">ID</th>
-                                    <th style="width:30%;">Nombre</th>
-                                    <th style="width:35%;">Dirección</th>
-                                    <th style="width:5%;">Correo</th>
-                                    <!-- <th style="width:5%;">Acciones</th> -->
-                                    <th style="width:10%;">Detalle</th>
-                                    <!-- <th style="width:5%;">Aceptar</th> -->
-                                    <th style="width:5%;">Eliminar</th>
-                                    <!-- <th style="width:5%;">Editar</th> -->
+                                    <th style="width:10%;">ID</th>
+                                    <th style="width:25%;">Nombre</th>
+                                    <th style="width:45%;">Descripción</th>
+                                    <th style="width:20%;">Lista de Acceso</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,40 +115,7 @@
                                     <td>{{mt.idMaterial}}</td>
                                     <td>{{mt.nombreMaterial}}</td>
                                     <td>{{mt.descripcionMaterial}}</td>
-                                    <td>{{mt.stock}}</td>
-                                    <!-- <td>
-                                        <button class="btn btn-sm btn-primary">
-                                            <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">
-                                                <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
-                                            </a>
-                                        </button>
-                                        <button class="btn btn-sm btn-danger">
-                                            <a href="#"
-                                                onclick="eliminarMaterial({{mt.idMaterial}})">
-                                                <i
-                                                class="fa-solid fa-trash-can" style="color: aliceblue"></i>
-                                            </a>
-                                        </button>
-                                        <td> -->
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-warning">
-                                                <a class="a"
-                                                    href="http://127.0.0.1:8000/Ver_Material/{{mt.idMaterial}}">
-                                                    <i class="fa-solid fa-eye" style="color: aliceblue"></i>
-                                                </a>
-                                                </button>
-                                            </div>
-                                        </td>
-                                        <!-- <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-success">
-                                                    <a href="#" onclick="aceptarPostulacion({{ps.idPostulacion}})">
-                                                    <i class="fa-sharp fa-solid fa-check" style="color: aliceblue"></i>
-                                                </a>
-                                                </button>
-                                            </div> 
-                                        </td>   -->
+                                   
                                         <td>
                                             <div class="d-flex justify-content-center">
                                             <button class="btn btn-sm btn-danger">
@@ -165,16 +127,7 @@
                                             </button>
                                             </div>
                                         </td>
-                                        <!-- <td>
-                                            <div class="d-flex justify-content-center">
-                                            <button class="btn btn-sm btn-primary">
-                                                <a href="http://127.0.0.1:8000/Modificar_Material/{{mt.idMaterial}}">
-                                                    <i class="fa-solid fa-pencil" style="color: aliceblue"></i>
-                                                </a>
-                                            </button>
-                                            </div>
-                                        </td> -->
-
+                                       
                                     </td>
                                 </tr>
                                 {% endfor %}
