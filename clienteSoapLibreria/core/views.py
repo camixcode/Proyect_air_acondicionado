@@ -134,9 +134,12 @@ def registro (request):
             user = authenticate(
                 username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
             login(request, user)
-            return redirect(to="home")
+            return redirect(to="productos")
         data["form"] = formulario
     return render (request, 'registration/registro.html', data)
+
+
+    
 
 def productos(request):
 #     instanciar variables para retornar
