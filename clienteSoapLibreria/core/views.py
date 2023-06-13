@@ -20,8 +20,9 @@ carrito={
 productosCarrito=[]
 
 cantidad =[]
-
-
+#Para recorrer los productos segun categoria hay que insertar en la lista al agregar un producto 
+listaAnwo=[]
+listaBodega=[]
 
 # Create your views here.
 def agregar_producto(request, producto_id):
@@ -40,8 +41,6 @@ def agregar_producto(request, producto_id):
     }
     cantidad.append(cant_pro)
     print(carrito['total'])
-    print(productosCarrito)
-    print(cantidad)
     return redirect("productos")
 
 
@@ -61,8 +60,6 @@ def agregar_producto_anwo(request, producto_id):
     }
     cantidad.append(cant_pro)
     print(carrito['total'])
-    print(productosCarrito)
-    print(cantidad)
     return redirect("productos")
 
 def eliminar_producto(request, producto_id):
@@ -213,6 +210,8 @@ def productos(request):
              detalle=descuentoStock[0]
              print(detalle['id'])
              print(detalle['cant'])
+             print(productosCarrito)
+             print(cantidad)
              if(detalle['categoria']=="Bodega"):
                  print(detalle['categoria'])
                  controler.descontarStockProducto(detalle['id'],detalle['cant'])
@@ -231,6 +230,8 @@ def productos(request):
              return redirect(to="productos")
          else:
              print("No hay pago")
+             print(productosCarrito)
+             print(cantidad)
          print("la url es : " , url)
 
          preferencias = controler.pagar(variable['total'])
