@@ -9,12 +9,33 @@ from django.shortcuts import redirect,render
 from .Carrito import Carrito
 from .producto import Producto
 
+
+carrito={
+    'nombre':'',
+    'total':0
+}
+
+productosCarrito=[]
+
+cantidad =[]
 # Create your views here.
 def agregar_producto(request, producto_id):
-    carrito = Carrito(request)
     controller = Controller()
     producto = controller.buscarUnProducto(producto_id)
-    carrito.agregar_producto(producto)
+    p_producto = producto.precio_bruto
+    carrito['total'] = carrito['total'] + producto.precio_bruto
+    productosCarrito.append(producto)
+    cant_pro={
+        'id':producto.id_producto,
+        'nombre':producto.nombre,
+        'cant':1,
+        'precio':producto.precio_bruto
+
+    }
+    cantidad.append(cant_pro)
+    print(carrito['total'])
+    print(productosCarrito)
+    print(cantidad)
     return redirect("productos")
 
 
@@ -148,6 +169,8 @@ def productos(request):
          'mensaje' : '',
          'productos_aw':'',
          'pais':'',
+         'total':carrito['total'],
+         'productos_carrito':cantidad,
 
     }
     controler = Controller()
@@ -160,8 +183,12 @@ def productos(request):
          variable['productos'] = listaProductos + listaProductosAw
          
          variable['mensaje'] = 'Busqueda exitosa'
-         preferencias = controler.pagar()
+
+        
+
+         preferencias = controler.pagar(variable['total'])
          variable['preference_id']=preferencias["response"]["id"]
+         print(preferencias)
     except:
          variable['mensaje'] = 'Error productos no encontrados'
          

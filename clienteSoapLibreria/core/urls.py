@@ -13,7 +13,7 @@ urlpatterns = [
     path('historialVenta',historialVenta, name="historialVenta"),
     path('inicio',inicio, name="inicio"),
     path('adminServicios',adminServicios, name="adminServicios"),
-
+    path('productos',productos, name="productos"),
     path('agregar_producto/<producto_id>/', agregar_producto, name="Add"),
     path('agregar_producto_anwo/<producto_id>/', agregar_producto_anwo, name="Add"),
     path('eliminar/<producto_id>/', eliminar_producto, name="del"),

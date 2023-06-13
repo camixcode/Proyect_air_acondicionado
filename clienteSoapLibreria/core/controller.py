@@ -92,7 +92,7 @@ class Controller:
         resultado = self.cliente.service.actualizarStockProductoAnwo(cod,stock)
         return resultado
     
-    def pagar(self):
+    def pagar(self,total):
         # Agrega credenciales
         sdk = mercadopago.SDK("TEST-8089418270941450-052521-0d2b104ed9c05b1dd8dbdd973340f776-1381512793")
 
@@ -101,19 +101,15 @@ class Controller:
             "items": [
                 {
                     "title": "aireAcondionado",
-                    "quantity": 3,
-                    "unit_price": 15900
-                },
-                                {
-                    "title": "Insumo aireAcondionado",
                     "quantity": 1,
-                    "unit_price": 45000
+                    "unit_price": total
                 },
+
             ],
                 "back_urls": {
-                            "success": "http://127.0.0.1:8000/historialVenta",
-                            "failure": "http://127.0.0.1:8000/historialVenta",
-                            "pending": "http://127.0.0.1:8000/historialVenta"
+                            "success": "http://127.0.0.1:8000/productos",
+                            "failure": "http://127.0.0.1:8000/productos",
+                            "pending": "http://127.0.0.1:8000/productos"
                             },
                 "auto_return": "approved"
 
