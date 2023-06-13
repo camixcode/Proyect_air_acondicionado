@@ -40,6 +40,7 @@ def agregar_producto(request, producto_id):
 
     }
     cantidad.append(cant_pro)
+    listaBodega.append(cant_pro['id'])
     print(carrito['total'])
     return redirect("productos")
 
@@ -59,6 +60,7 @@ def agregar_producto_anwo(request, producto_id):
 
     }
     cantidad.append(cant_pro)
+    listaAnwo.append(cant_pro['id'])
     print(carrito['total'])
     return redirect("productos")
 
