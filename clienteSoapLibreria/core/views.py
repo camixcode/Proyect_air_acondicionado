@@ -34,7 +34,8 @@ def agregar_producto(request, producto_id):
         'id':producto.id_producto,
         'nombre':producto.nombre,
         'cant':1,
-        'precio':producto.precio_bruto
+        'precio':producto.precio_bruto,
+        'categoria':producto.categoria,
 
     }
     cantidad.append(cant_pro)
@@ -45,10 +46,23 @@ def agregar_producto(request, producto_id):
 
 
 def agregar_producto_anwo(request, producto_id):
-    carrito = Carrito(request)
     controller = Controller()
     producto = controller.buscarUnProductoAnwo(producto_id)
-    carrito.agregar_producto(producto)
+    p_producto = producto.precio_bruto
+    carrito['total'] = carrito['total'] + producto.precio_bruto
+    productosCarrito.append(producto)
+    cant_pro={
+        'id':producto.id_producto,
+        'nombre':producto.nombre,
+        'cant':1,
+        'precio':producto.precio_bruto,
+        'categoria':producto.categoria,
+
+    }
+    cantidad.append(cant_pro)
+    print(carrito['total'])
+    print(productosCarrito)
+    print(cantidad)
     return redirect("productos")
 
 def eliminar_producto(request, producto_id):
@@ -66,8 +80,9 @@ def restar_producto(request, producto_id):
     return redirect("productos") 
 
 def limpiar_carrito(request):
-    carrito = Carrito(request)   
-    carrito.limpiar()
+    productosCarrito.clear()
+    cantidad.clear()
+    carrito['total']=0
     return redirect("productos") 
 
 
@@ -198,11 +213,13 @@ def productos(request):
              detalle=descuentoStock[0]
              print(detalle['id'])
              print(detalle['cant'])
-             print("productos antes")
-             print(detalle)
-             controler.descontarStockProducto(detalle['id'],detalle['cant'])
-             print("productos despues")
-             print(detalle)
+             if(detalle['categoria']=="Bodega"):
+                 print(detalle['categoria'])
+                 controler.descontarStockProducto(detalle['id'],detalle['cant'])
+             elif(detalle['categoria']=="Anwo"):
+                 print(detalle['categoria'])
+                 controler.descontarStockProductoAnwo(detalle['id'],detalle['cant'])
+                
              productosCarrito.clear()
 
              cantidad.clear()
