@@ -117,11 +117,7 @@
                         <tr>
                             <td>{{c.nombre}}</td>
                             <td>{{c.precio}} </td>
-                            <td>
-                                <a href="http://127.0.0.1:8000/agregar_producto/{{value.producto_id}}" class="badge btn btn-dark badge-dark "> + </a>
-            
-                                <a href="http://127.0.0.1:8000/restar_producto/{{value.producto_id}}"  class="badge btn btn-dark badge-dark "> - </a>
-                            </td>
+                            <td style="text-align: center;">{{c.cant}} </td>
                         </tr>
                         {% endfor %}
 
