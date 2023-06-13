@@ -8,7 +8,9 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect,render
 from .Carrito import Carrito
 from .producto import Producto
+import webbrowser
 
+from urllib.parse import urlparse
 
 carrito={
     'nombre':'',
@@ -18,6 +20,9 @@ carrito={
 productosCarrito=[]
 
 cantidad =[]
+
+
+
 # Create your views here.
 def agregar_producto(request, producto_id):
     controller = Controller()
@@ -178,17 +183,43 @@ def productos(request):
     try:
          listaProductos = controler.mostrarProductos()
          listaProductosAw = controler.mostrarProductosAnwo()
-
          
          variable['productos'] = listaProductos + listaProductosAw
          
          variable['mensaje'] = 'Busqueda exitosa'
+         url = ""
+         url = str(request)
+         aprovado="status=approved"
+         if(aprovado in url):
+             print("Estado Aprobado")
+             descuentoStock=[]
+             descuentoStock=cantidad
+             detalle={}
+             detalle=descuentoStock[0]
+             print(detalle['id'])
+             print(detalle['cant'])
+             print("productos antes")
+             print(detalle)
+             controler.descontarStockProducto(detalle['id'],detalle['cant'])
+             print("productos despues")
+             print(detalle)
+             productosCarrito.clear()
 
-        
+             cantidad.clear()
+             carrito['total']=0
+
+
+            #  print(cant_pro['id'])
+            #  print(cant_pro['cant'])
+             return redirect(to="productos")
+         else:
+             print("No hay pago")
+         print("la url es : " , url)
 
          preferencias = controler.pagar(variable['total'])
+         
          variable['preference_id']=preferencias["response"]["id"]
-         print(preferencias)
+         
     except:
          variable['mensaje'] = 'Error productos no encontrados'
          

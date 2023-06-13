@@ -114,7 +114,7 @@ class Controller:
                 "auto_return": "approved"
 
         }
-
+        
         preference_response = sdk.preference().create(preference_data)
         #preference = preference_response["response"]
         return preference_response
