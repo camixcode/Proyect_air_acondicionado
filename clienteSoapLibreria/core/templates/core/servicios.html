@@ -80,57 +80,28 @@ mp.bricks().create("wallet", "wallet_container", {
     </head>
 
     <body>
+        
 <div class="container fluid">
-
+    {% for s in servicio %}
             <div class="card text-center">
                 <div class="card-header">
                 Servicios Buenos Aires
                 </div>
                 <div class="card-body">
-                <h5 class="card-title"> <strong>Proyectos</strong> </h5>
-                <p class="card-text">Nuestro equipo técnico con basta experiencia en proyectos de Aire Acondicionados podrán brindar asesoria y la ejecución de un proyecto de alto nivel cuidando la calidad, versatilidad y estetica de los distintos ambientes donde requiere implementar los distintos elementos</p>
+                <h5 class="card-title"> <strong>{{s.nombreServicio}}</strong> </h5>
+                <p class="card-text">{{s.descripcion}}</p>
                 <a href="#" class="btn btn-primary">Contactar</a>
                 </div>
                 <div class="card-footer text-muted">
                 <!-- 2 days ago -->
                 </div>
             </div>
-
-            <br>
-
-            <div class="card text-center">
-                <div class="card-header">
-                Servicios Buenos Aires
-                </div>
-                <div class="card-body">
-                <h5 class="card-title"> <strong>Reparación</strong> </h5>
-                <p class="card-text">Nuestro equipo técnico con basta experiencia en proyectos de Aire Acondicionados podrán brindar asesoria y la ejecución de un proyecto de alto nivel cuidando la calidad, versatilidad y estetica de los distintos ambientes donde requiere implementar los distintos elementos</p>
-                <a href="#" class="btn btn-primary">Contactar</a>
-                </div>
-                <div class="card-footer text-muted">
-                <!-- 2 days ago -->
-                </div>
-            </div>
-
-            <br>
-
-            <div class="card text-center">
-                <div class="card-header">
-                Servicios Buenos Aires
-                </div>
-                <div class="card-body">
-                <h5 class="card-title"> <strong>Mantenimiento</strong> </h5>
-                <p class="card-text">Nuestro equipo técnico con basta experiencia en proyectos de Aire Acondicionados podrán brindar asesoria y la ejecución de un proyecto de alto nivel cuidando la calidad, versatilidad y estetica de los distintos ambientes donde requiere implementar los distintos elementos</p>
-                <a href="#" class="btn btn-primary">Contactar</a>
-                </div>
-                <div class="card-footer text-muted">
-                <!-- 2 days ago -->
-                </div>
-            </div>
+            {% endfor %}
             <br>
             
 
 </div>
+
 
 
         <footer>
