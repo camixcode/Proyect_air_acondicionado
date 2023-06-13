@@ -199,7 +199,6 @@ def productos(request):
          listaProductosAw = controler.mostrarProductosAnwo()
          
          variable['productos'] = listaProductos + listaProductosAw
-         
          variable['mensaje'] = 'Busqueda exitosa'
          url = ""
          url = str(request)
@@ -222,15 +221,9 @@ def productos(request):
                  elif(detalle['categoria']=="Anwo"):
                      print(detalle['categoria'])
                      controler.descontarStockProductoAnwo(detalle['id'],detalle['cant'])
-                    
              productosCarrito.clear()
-
              cantidad.clear()
              carrito['total']=0
-
-
-            #  print(cant_pro['id'])
-            #  print(cant_pro['cant'])
              return redirect(to="productos")
          else:
              print("No hay pago")
