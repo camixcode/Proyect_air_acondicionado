@@ -208,19 +208,21 @@ def productos(request):
              print("Estado Aprobado")
              descuentoStock=[]
              descuentoStock=cantidad
-             detalle={}
-             detalle=descuentoStock[0]
-             print(detalle['id'])
-             print(detalle['cant'])
-             print(productosCarrito)
-             print(cantidad)
-             if(detalle['categoria']=="Bodega"):
-                 print(detalle['categoria'])
-                 controler.descontarStockProducto(detalle['id'],detalle['cant'])
-             elif(detalle['categoria']=="Anwo"):
-                 print(detalle['categoria'])
-                 controler.descontarStockProductoAnwo(detalle['id'],detalle['cant'])
-                
+             print(descuentoStock)
+             con=0
+             for des in descuentoStock:
+                 detalle={}
+                 detalle=descuentoStock[con]
+                 print(detalle['id'])
+                 print(detalle['cant'])
+                 con=+1
+                 if(detalle['categoria']=="Bodega"):
+                     print(detalle['categoria'])
+                     controler.descontarStockProducto(detalle['id'],detalle['cant'])
+                 elif(detalle['categoria']=="Anwo"):
+                     print(detalle['categoria'])
+                     controler.descontarStockProductoAnwo(detalle['id'],detalle['cant'])
+                    
              productosCarrito.clear()
 
              cantidad.clear()
