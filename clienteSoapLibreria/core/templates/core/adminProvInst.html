@@ -88,8 +88,8 @@
     </div>
     <div class="container">
         <div class="right">
-            <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-6" 
-                    href="#"> Agregar Proveedor</a></button>
+            <!-- <button class="btn btn-sm btn-success"><a class="a text-md-center text-light fs-6" 
+                    href="#"> Agregar Proveedor</a></button> -->
         </div>
     </div>
     <br>
@@ -109,30 +109,20 @@
                                     <th style="width:35%;">Dirección</th>
                                     <th style="width:5%;">Correo</th>
                                     <th style="width:10%;">Especialización</th>
-                                    <th style="width:5%;">Detalle</th>
+                                
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for mt in material %}
+                                {% for p in proveedor %}
                                 <tr>
-                                    <td>{{mt.idMaterial}}</td>
-                                    <td>{{mt.nombreMaterial}}</td>
-                                    <td>{{mt.descripcionMaterial}}</td>
-                                    <td>{{mt.stock}}</td>
-                                    <td>{{mt.stock}}</td>
-                                    <td>{{mt.stock}}</td>
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                            <button class="btn btn-sm btn-danger">
-                                                <a href="#"
-                                                    onclick="eliminarMaterial">
-                                                    <i
-                                                    class="fa-solid fa-trash-can" style="color: aliceblue"></i>
-                                                </a>
-                                            </button>
-                                            </div>
-                                        </td>
-                                    </td>
+                                    <td>{{p.idProveedor}}</td>
+                                    <td>{{p.rut}}</td>
+                                    <td>{{p.nombreProveedor}}</td>
+                                    <td>{{p.descripcion}}</td>
+                                    <td>{{p.correo}}</td>
+                                    <td>{{p.especializacion}}</td>
+                                 
+                            
                                 </tr>
                                 {% endfor %}
                             </tbody>

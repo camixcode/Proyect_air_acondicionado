@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from .models import Servicio
+from .models import Proveedor, Servicio
 from .controller import Controller
 from .libro import Libro
 from .forms import CustomerUserCreationForm
@@ -261,7 +261,14 @@ def inicio(request):
     return render(request, 'core/inicio.html')
 
 def adminServicios(request):
-    return render(request, 'core/adminServicios.html')
+    variable = {
+        'servicio':''
+    }
+    servicio = Servicio.objects.all()
+    variable = {
+        'servicio':servicio
+    }
+    return render(request, 'core/adminServicios.html',variable)
 
 def servicios(request):
     variable = {
@@ -274,7 +281,14 @@ def servicios(request):
     return render(request, 'core/servicios.html',variable)
 
 def adminProvInst(request):
-    return render(request, 'core/adminProvInst.html')
+    variable = {
+        'proveedor':''
+    }
+    proveedor = Proveedor.objects.all()
+    variable = {
+        'proveedor':proveedor
+    }
+    return render(request, 'core/adminProvInst.html',variable)
 
 
 def adminRoles (request):
