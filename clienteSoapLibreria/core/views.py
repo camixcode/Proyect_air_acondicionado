@@ -21,6 +21,8 @@ carrito={
 
 productosCarrito=[]
 
+cantAnwo=0
+CantBod=0
 cantidad =[]
 #Para recorrer los productos segun categoria hay que insertar en la lista al agregar un producto 
 listaAnwo=[]
@@ -61,7 +63,16 @@ def agregar_producto_anwo(request, producto_id):
         'categoria':producto.categoria,
 
     }
-    cantidad.append(cant_pro)
+    if cant_pro in cantidad:
+        print("ya esta agregado el producto")
+        print(cantidad.count(cant_pro))
+        cantidad.append(cant_pro)
+        
+    else:
+        print("no esta agregado el producto")
+        cantidad.append(cant_pro)
+        print(cantidad.count(cant_pro))
+    
     listaAnwo.append(cant_pro['id'])
     print(carrito['total'])
     return redirect("productos")
@@ -189,7 +200,6 @@ def productos(request):
          'productos':'',
          'mensaje' : '',
          'productos_aw':'',
-         'pais':'',
          'total':carrito['total'],
          'productos_carrito':cantidad,
 
@@ -232,9 +242,7 @@ def productos(request):
              print(productosCarrito)
              print(cantidad)
          print("la url es : " , url)
-
          preferencias = controler.pagar(variable['total'])
-         
          variable['preference_id']=preferencias["response"]["id"]
          
     except:
