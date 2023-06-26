@@ -174,5 +174,17 @@
         integrity="sha384-X8TZRa0FSGLAtvBlTsQ05mC6h54gXP+2i2+kl3DVoQeTQuu/dxU0Fjlzv8QqXdQ4"
         crossorigin="anonymous"></script>
 </body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+{% for m in messages %}
+<script>
+  Swal.fire({
+    "title": "Felicitaciones cuenta creada correctamente",
+    "text": "{{m}}",
+    "icon": "success"
+  })
+</script>
+{% endfor %}
+{% endif %}
 
 </html>
